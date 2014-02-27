@@ -1,0 +1,49 @@
+{
+  "name": "*",
+  "version": "0.1.0",
+  "author": {
+    "name": "lithiumjake",
+    "email": "lithiumjake@mail.com",
+    "url": "lithiumjake.github.io"
+  },
+  "license": "MIT",
+  "description": "*",
+  "keywords": [
+    "*"
+  ],
+  "main": "dist/*",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lithiumjake/*.git"
+  },
+  "bugs": "https://github.com/lithiummjake/*/issues",
+  "homepage": "*",
+  "devDependencies": {
+    "testem": "*",
+    "mocha": "*",
+    "chai": "*",
+    "sinon": "*",
+    "sinon-chai": "*",
+    "browserify": "*",
+    "watchify": "*",
+    "gulp": "*",
+    "uglify-js": "~2.4.12",
+    "gulp-livereload": "~1.1.1",
+    "tiny-lr": "0.0.5",
+    "gulp-browserify": "~0.4.5",
+    "gulp-concat": "~2.1.7"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/testem ci",
+    "tdd": "npm run watch & npm run bdd",
+    "bdd":"./node_modules/.bin/testem -g",
+    "watch": "./node_modules/.bin/watchify ./spec/tests.js -o ./spec/browserified.js",
+    "build-debug": "node_modules/.bin/browserify src/scripts/index.js -d > app/js/app.js",
+    "build-min": "node_modules/.bin/browserify src/scripts/index.js | uglifyjs > app/js/app.min.js",
+    "build": "npm run build-debug && npm run build-min",
+    "new": "npm run symrepos",
+    "symrepos": "ln -s ~/node_modules node_modules && ln -s ~/bower_components bower_components",
+    "ghp": "git checkout -b gh-pages",
+    "gulp": "node_modules/.bin/gulp"
+  }
+}
